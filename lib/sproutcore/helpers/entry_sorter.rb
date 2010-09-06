@@ -63,14 +63,12 @@ module SC
             [2, name]
           when /(?:lproj|resources)\/.+_page\.js$/
             [1, name]
-          when /lproj\/strings.js$/
-            [-2, name]
           else
             [-1, name]
           end
 
           # force preferred filenames to the front on the list
-          result.unshift (@preferred_filenames.include?(name) ? -1 : 1)
+          result.unshift (@preferred_filenames.include?(name) ? -2 : 1)
         end
 
         # now process each entry to handle requires
